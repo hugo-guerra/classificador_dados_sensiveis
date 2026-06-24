@@ -19,6 +19,22 @@ padroes = {
     "Orientação Sexual": r"Orientação Sexual:\s*(.*)"
 }
 
+niveis_de_riscos = {
+    "CPF": "Médio",
+    "E-mail": "Médio",
+    "Telefone": "Médio",
+    "Nome Completo": "Médio",
+    "RG": "Médio",
+    "Data de Nascimento": "Médio",
+    "CEP": "Médio",
+    "Endereço IP": "Médio",
+    "Saúde": "Alto",
+    "Religião": "Alto",
+    "Raça": "Alto",
+    "Opinião Política": "Alto",
+    "Orientação Sexual": "Alto"
+}
+
 for chave, valor in padroes.items():
     encontrados = re.findall(valor, conteudo)
     print(chave, encontrados)
