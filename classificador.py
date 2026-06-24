@@ -20,21 +20,21 @@ padroes = {
 }
 
 niveis_de_riscos = {
-    "CPF": "Médio",
-    "E-mail": "Médio",
-    "Telefone": "Médio",
-    "Nome Completo": "Médio",
-    "RG": "Médio",
-    "Data de Nascimento": "Médio",
-    "CEP": "Médio",
-    "Endereço IP": "Médio",
-    "Saúde": "Alto",
-    "Religião": "Alto",
-    "Raça": "Alto",
-    "Opinião Política": "Alto",
-    "Orientação Sexual": "Alto"
+    "CPF": "Risco: Médio",
+    "E-mail": "Risco: Médio",
+    "Telefone": "Risco: Médio",
+    "Nome Completo": "Risco: Médio",
+    "RG": "Risco: Médio",
+    "Data de Nascimento": "Risco: Médio",
+    "CEP": "Risco: Médio",
+    "Endereço IP": "Risco: Médio",
+    "Saúde": "Risco: Alto",
+    "Religião": "Risco: Alto",
+    "Raça": "Risco: Alto",
+    "Opinião Política": "Risco: Alto",
+    "Orientação Sexual": "Risco: Alto"
 }
 
 for chave, valor in padroes.items():
     encontrados = re.findall(valor, conteudo)
-    print(chave, encontrados)
+    print(f"O {niveis_de_riscos[chave]} para {padroes[chave]}{encontrados}")
