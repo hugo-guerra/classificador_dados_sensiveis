@@ -1,4 +1,5 @@
 import re
+from datetime import datetime
 
 with open("dados/amostra.txt", "r", encoding="utf-8") as arquivo:
     conteudo = arquivo.read()
@@ -35,9 +36,14 @@ niveis_de_riscos = {
     "Orientação Sexual": "Alto"
 }
 
-for chave, valor in padroes.items():
-    encontrados = re.findall(valor, conteudo, re.MULTILINE)
+agora = datetime.now()
+relatorio_atual = f"relatorio_{agora.strftime('%Y-%m-%d_%H-%M-%S')}.txt"
+
+with open(f"relatorios/{relatorio_atual}", "w", encoding="utf-8") as relatorio:
+    for chave, valor in padroes.items():
+        encontrados = re.findall(valor, conteudo, re.MULTILINE)
     
-    if encontrados and encontrados[0] != "":
-        risco = niveis_de_riscos[chave]
-        print(f"Dado: {chave} | Encontrado: {encontrados} | Risco: {risco}")
+        if encontrados and encontrados[0] != "":
+            risco = niveis_de_riscos[chave]
+            relatorio.write(f"Dado: {chave} | Encontrado: {encontrados} | Risco: {risco}\n")
+            

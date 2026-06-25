@@ -1,0 +1,12 @@
+Dado: CPF | Encontrado: ['489.706.282-90'] | Risco: Médio
+Dado: E-mail | Encontrado: ['juru56@gmail.com'] | Risco: Médio
+Dado: Telefone | Encontrado: ['(96) 94567-0987'] | Risco: Médio
+Dado: Nome Completo | Encontrado: ['Jurubeba Terra Formada'] | Risco: Médio
+Dado: RG | Encontrado: ['12.679.344-8'] | Risco: Médio
+Dado: Data de Nascimento | Encontrado: ['24/11/1958'] | Risco: Médio
+Dado: CEP | Encontrado: ['34567-902'] | Risco: Médio
+Dado: Endereço IP | Encontrado: ['251.200.101.80'] | Risco: Médio
+Dado: Saúde | Encontrado: ['Asma, Bronquite e Diabete'] | Risco: Alto
+Dado: Religião | Encontrado: ['Católica'] | Risco: Alto
+Dado: Opinião Política | Encontrado: ['Direita'] | Risco: Alto
+Dado: Orientação Sexual | Encontrado: ['Heterossexual'] | Risco: Alto
