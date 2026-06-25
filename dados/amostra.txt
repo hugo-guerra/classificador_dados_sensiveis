@@ -2,12 +2,12 @@ Nome: Jurubeba Terra Formada
 CPF: 489.706.282-90
 E-mail: juru56@gmail.com
 Telefone: (96) 94567-0987
-Saúde: Asma
+Saúde: Asma, Bronquite e Diabete
 Data de Nascimento: 24/11/1958
 RG: 12.679.344-8
 CEP: 34567-902
 Endereço IP: 251.200.101.80
-Raça: Parda
 Religião: Católica
+Raça: 
 Opinião Política: Direita
 Orientação Sexual: Heterossexual

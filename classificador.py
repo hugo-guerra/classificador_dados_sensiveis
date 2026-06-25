@@ -12,29 +12,32 @@ padroes = {
     "Data de Nascimento": r"Data de Nascimento:\s*(\d{2}/\d{2}/\d{4})",
     "CEP": r"CEP:\s*(\d{5}-\d{3})",
     "Endereço IP": r"IP:\s*((?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})",
-    "Saúde": r"Saúde:\s*(.*)",
-    "Religião": r"Religião:\s*(.*)",
-    "Raça": r"Raça:\s*(.*)",
-    "Opinião Política": r"Opinião Política:\s*(.*)",
-    "Orientação Sexual": r"Orientação Sexual:\s*(.*)"
+    "Saúde": r"Saúde:[ \t]*([^\r\n]*)$",
+    "Religião": r"Religião:[ \t]*([^\r\n]*)$",
+    "Raça": r"Raça:[ \t]*([^\r\n]*)$",
+    "Opinião Política": r"Opinião Política:[ \t]*([^\r\n]*)$",
+    "Orientação Sexual": r"Orientação Sexual:[ \t]*([^\r\n]*)$"
 }
 
 niveis_de_riscos = {
-    "CPF": "Risco: Médio",
-    "E-mail": "Risco: Médio",
-    "Telefone": "Risco: Médio",
-    "Nome Completo": "Risco: Médio",
-    "RG": "Risco: Médio",
-    "Data de Nascimento": "Risco: Médio",
-    "CEP": "Risco: Médio",
-    "Endereço IP": "Risco: Médio",
-    "Saúde": "Risco: Alto",
-    "Religião": "Risco: Alto",
-    "Raça": "Risco: Alto",
-    "Opinião Política": "Risco: Alto",
-    "Orientação Sexual": "Risco: Alto"
+    "CPF": "Médio",
+    "E-mail": "Médio",
+    "Telefone": "Médio",
+    "Nome Completo": "Médio",
+    "RG": "Médio",
+    "Data de Nascimento": "Médio",
+    "CEP": "Médio",
+    "Endereço IP": "Médio",
+    "Saúde": "Alto",
+    "Religião": "Alto",
+    "Raça": "Alto",
+    "Opinião Política": "Alto",
+    "Orientação Sexual": "Alto"
 }
 
 for chave, valor in padroes.items():
-    encontrados = re.findall(valor, conteudo)
-    print(f"O {niveis_de_riscos[chave]} para {padroes[chave]}{encontrados}")
+    encontrados = re.findall(valor, conteudo, re.MULTILINE)
+    
+    if encontrados and encontrados[0] != "":
+        risco = niveis_de_riscos[chave]
+        print(f"Dado: {chave} | Encontrado: {encontrados} | Risco: {risco}")
