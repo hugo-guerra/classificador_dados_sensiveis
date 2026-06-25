@@ -1,7 +1,9 @@
 import re
 from datetime import datetime
 
-with open("dados/amostra.txt", "r", encoding="utf-8") as arquivo:
+caminho_arquivo = input("Qual é o caminho do seu arquivo? ")
+
+with open(caminho_arquivo, "r", encoding="utf-8") as arquivo:
     conteudo = arquivo.read()
 
 padroes = {
@@ -46,7 +48,7 @@ with open(f"relatorios/{relatorio_atual}", "w", encoding="utf-8") as relatorio:
 
     relatorio.write("Relatório da Análise do Arquivo\n\n")
     relatorio.write(f"O arquivo foi gerado na data de: {agora.strftime('%Y-%m-%d %H:%M:%S')}\n\n")
-    relatorio.write(f"Os dados vieram do caminho 'dados/seu_arquivo.txt'\n\n")
+    relatorio.write(f"Os dados vieram do caminho {caminho_arquivo}\n\n")
 
     for chave, valor in padroes.items():
         encontrados = re.findall(valor, conteudo, re.MULTILINE)
@@ -60,7 +62,7 @@ with open(f"relatorios/{relatorio_atual}", "w", encoding="utf-8") as relatorio:
 
             relatorio.write(f"Dado: {chave} | Encontrado: {encontrados} | Risco: {risco}\n\n")
 
-    relatorio.write(f"ATENÇÃO: Foram achado {cont_total} no total, e desses {cont_alto} são de alto risco.\n")
+    relatorio.write(f"ATENÇÃO: Foram encontrados {cont_total} dados no total, sendo {cont_alto} de alto risco.\n")
 
 print(f"O arquivo foi analisado com sucesso, ele esta salvo na pasta relatorios/{relatorio_atual}")
             
