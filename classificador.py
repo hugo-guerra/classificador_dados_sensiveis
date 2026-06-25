@@ -39,11 +39,28 @@ niveis_de_riscos = {
 agora = datetime.now()
 relatorio_atual = f"relatorio_{agora.strftime('%Y-%m-%d_%H-%M-%S')}.txt"
 
+cont_total = 0
+cont_alto = 0
+
 with open(f"relatorios/{relatorio_atual}", "w", encoding="utf-8") as relatorio:
+
+    relatorio.write("Relatório da Análise do Arquivo\n\n")
+    relatorio.write(f"O arquivo foi gerado na data de: {agora.strftime('%Y-%m-%d %H:%M:%S')}\n\n")
+    relatorio.write(f"Os dados vieram do caminho 'dados/seu_arquivo.txt'\n\n")
+
     for chave, valor in padroes.items():
         encontrados = re.findall(valor, conteudo, re.MULTILINE)
-    
+
         if encontrados and encontrados[0] != "":
             risco = niveis_de_riscos[chave]
-            relatorio.write(f"Dado: {chave} | Encontrado: {encontrados} | Risco: {risco}\n")
+
+            cont_total += 1
+            if niveis_de_riscos[chave] == "Alto":
+                cont_alto += 1
+
+            relatorio.write(f"Dado: {chave} | Encontrado: {encontrados} | Risco: {risco}\n\n")
+
+    relatorio.write(f"ATENÇÃO: Foram achado {cont_total} no total, e desses {cont_alto} são de alto risco.\n")
+
+print(f"O arquivo foi analisado com sucesso, ele esta salvo na pasta relatorios/{relatorio_atual}")
             
